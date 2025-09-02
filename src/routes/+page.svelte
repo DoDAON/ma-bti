@@ -31,9 +31,7 @@
   <div class="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8 text-center">
     <!-- 로고/아이콘 -->
     <div class="mb-8">
-      <div class="w-20 h-20 bg-green-500 rounded-full mx-auto flex items-center justify-center mb-4">
-        <span class="text-3xl">⛏️</span>
-      </div>
+      <img src="/images.png" alt="result icon" class="mx-auto mb-4 object-contain" style="width: 100px; height: 120px;" />
       <h1 class="text-3xl font-bold text-gray-800 mb-2">M(A)BTI</h1>
       <p class="text-gray-600 text-lg">마인크래프트 플레이 성향 테스트</p>
     </div>
