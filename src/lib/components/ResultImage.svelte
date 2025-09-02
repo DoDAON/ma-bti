@@ -39,12 +39,34 @@
     }).format(new Date(date));
   }
 
+  async function waitForStableRender(container: HTMLElement) {
+    // 폰트 로딩 완료 대기
+    try {
+      // @ts-ignore
+      if (document.fonts && document.fonts.ready) {
+        // @ts-ignore
+        await document.fonts.ready;
+      }
+    } catch {}
+    // 연속 RAF로 레이아웃 안정화 대기
+    await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
+    // 약간의 지연으로 스타일/이미지 최종 적용 대기
+    await new Promise((r) => setTimeout(r, 50));
+    // 컨테이너 내 이미지 로딩 대기 (현재는 이미지 없지만 안전장치)
+    const images = Array.from(container.querySelectorAll('img')) as HTMLImageElement[];
+    await Promise.all(images.map((img) => img.complete ? Promise.resolve() : new Promise((res) => {
+      img.addEventListener('load', () => res());
+      img.addEventListener('error', () => res());
+    })));
+  }
+
   async function downloadResultImage() {
     if (!resultContainer || isGenerating) return;
 
     isGenerating = true;
 
     try {
+      await waitForStableRender(resultContainer);
       const canvas = await html2canvas(resultContainer, {
         backgroundColor: '#ffffff',
         scale: 2,
