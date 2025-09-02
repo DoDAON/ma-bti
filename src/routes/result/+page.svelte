@@ -90,27 +90,13 @@
     <!-- 헤더 -->
     <div class="bg-white/90 backdrop-blur-sm shadow-sm">
       <div class="max-w-4xl mx-auto px-4 py-4">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-center">
           <div class="flex items-center space-x-4">
-            <button
-              on:click={() => goto('/')}
-              class="text-green-600 hover:text-green-700 transition-colors"
-            >
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-              </svg>
-            </button>
-            <div>
+            <div class="text-center">
               <h1 class="text-xl font-bold text-gray-800">M(A)BTI 결과</h1>
               <p class="text-sm text-gray-600">{result.name}님의 성향 분석 완료</p>
             </div>
           </div>
-          <button
-            on:click={() => showQR = !showQR}
-            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors"
-          >
-            {showQR ? '결과 보기' : 'QR 생성'}
-          </button>
         </div>
       </div>
     </div>
@@ -120,9 +106,7 @@
       <div class="bg-white rounded-2xl shadow-2xl p-8">
         <!-- 결과 헤더 -->
         <div class="text-center mb-8">
-          <div class="w-24 h-24 bg-green-500 rounded-full mx-auto flex items-center justify-center mb-4">
-            <span class="text-4xl">⛏️</span>
-          </div>
+          <img src="/images.png" alt="result icon" class="mx-auto mb-4 object-contain" style="width: 100px; height: 120px;" />
           <h2 class="text-3xl font-bold text-gray-800 mb-2">
             {result.name}님의 M(A)BTI
           </h2>
@@ -152,7 +136,7 @@
 
         <!-- 축 분포 -->
         <div class="mb-8">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">축 분포</h3>
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">성향 분포</h3>
           <div class="space-y-4">
             {#each getAxisBars() as row}
               <div class="space-y-1">
@@ -176,6 +160,7 @@
         <!-- 테스트 정보 -->
         <div class="text-center text-sm text-gray-500">
           <p>테스트 완료: {formatDate(result.completedAt)}</p>
+          <p>YUMC from Yeungnam University</p>
         </div>
 
         <!-- 액션 버튼 -->

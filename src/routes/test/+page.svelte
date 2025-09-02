@@ -76,14 +76,6 @@
       <div class="max-w-4xl mx-auto px-4 py-4">
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-4">
-            <button
-              on:click={() => goto('/')}
-              class="text-green-600 hover:text-green-700 transition-colors"
-            >
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-              </svg>
-            </button>
             <div>
               <h1 class="text-xl font-bold text-gray-800">M(A)BTI 테스트</h1>
               <p class="text-sm text-gray-600">{name}님의 성향 분석</p>
@@ -121,7 +113,7 @@
         <div class="space-y-4">
           {#each getCurrentQuestion().choices as choice, index}
             <button
-              on:click={() => handleChoiceSelect(choice.axisScores)}
+              on:click={(e) => { (e.currentTarget as HTMLButtonElement).blur(); handleChoiceSelect(choice.axisScores); }}
               class="w-full p-6 text-left bg-gray-50 hover:bg-green-50 border-2 border-transparent hover:border-green-300 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-green-500"
             >
               <div class="flex items-center space-x-4">

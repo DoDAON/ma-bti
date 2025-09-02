@@ -126,9 +126,7 @@
 
   <!-- 결과 헤더 -->
   <div style="text-align: center; margin-bottom: 1.5rem;">
-    <div style="width: 4rem; height: 4rem; background-color: #22c55e; border-radius: 50%; margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center;">
-      <span style="font-size: 1.5rem;">⛏️</span>
-    </div>
+    <img src="/images.png" alt="result icon" style="display: block; margin: 0 auto 0.75rem; width: 100px; height: 120px; object-fit: contain;" />
     <h2 style="font-size: 1.25rem; font-weight: bold; color: #1f2937; margin-bottom: 0.25rem;">
       {result.name}님의 M(A)BTI
     </h2>
@@ -150,7 +148,7 @@
 
   <!-- 축 분포 -->
   <div style="margin-bottom: 1rem;">
-    <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">축 분포</h3>
+    <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">성향 분포</h3>
     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
       {#each getAxisBars() as row}
         <div style="display: flex; flex-direction: column; gap: 0.25rem;">
@@ -174,5 +172,6 @@
   <!-- 테스트 정보 -->
   <div style="text-align: center; font-size: 0.75rem; color: #6b7280;">
     <p>테스트 완료: {formatDate(result.completedAt)}</p>
+    <p>YUMC from Yeungnam University</p>
   </div>
 </div> 
