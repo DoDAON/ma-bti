@@ -118,7 +118,7 @@
 </div>
 
 <!-- 결과 이미지용 컨테이너 -->
-<div bind:this={resultContainer} style="background-color: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 28rem; margin: 0 auto; position: relative;">
+<div bind:this={resultContainer} style="background-color: white; padding: 32px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 448px; margin: 0 auto; position: relative; font-size: 16px; -webkit-text-size-adjust: 100%; font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, -apple-system, sans-serif;">
   <!-- 워터마크 -->
   <div style="position: absolute; top: 1rem; right: 1rem; color: #22c55e; font-size: 0.875rem; font-weight: 600;">
     M(A)BTI
