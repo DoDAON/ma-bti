@@ -51,10 +51,10 @@
     // 연속 RAF로 레이아웃 안정화 대기
     await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
     // 약간의 지연으로 스타일/이미지 최종 적용 대기
-    await new Promise((r) => setTimeout(r, 50));
+    await new Promise<void>((r) => setTimeout(() => r(), 50));
     // 컨테이너 내 이미지 로딩 대기 (현재는 이미지 없지만 안전장치)
     const images = Array.from(container.querySelectorAll('img')) as HTMLImageElement[];
-    await Promise.all(images.map((img) => img.complete ? Promise.resolve() : new Promise((res) => {
+    await Promise.all(images.map((img) => img.complete ? Promise.resolve<void>(undefined) : new Promise<void>((res) => {
       img.addEventListener('load', () => res());
       img.addEventListener('error', () => res());
     })));
