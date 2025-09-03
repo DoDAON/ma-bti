@@ -95,12 +95,12 @@
 </svelte:head>
 
 {#if isLoading}
-  <div class="min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 flex items-center justify-center">
-    <div class="text-white text-center transform scale-170">
-      <img src="/creeper.png" alt="로딩 중" class="animate-bounce h-24 w-24 mx-auto mb-4" style="object-fit: contain;" />
-      <b>결과를 분석하고 있습니다...</b>
+  <div class="fixed inset-0 h-screen w-screen overflow-hidden overflow-x-hidden bg-gradient-to-br from-green-400 via-green-500 to-green-600 flex items-center justify-center">
+    <div class="text-white text-center w-full mx-auto box-border px-4 sm:px-6 max-w-full sm:max-w-screen-sm md:max-w-screen-md transform sm:scale-110 md:scale-125">
+      <img src="/creeper.png" alt="로딩 중" class="animate-bounce h-24 w-24 sm:h-28 sm:w-28 mx-auto mb-4" style="object-fit: contain;" />
+      <b class="block text-lg sm:text-xl md:text-2xl">결과를 분석하고 있습니다...</b>
       {#if randomTip}
-        <p class="text-sm text-white/90 mt-2 text-shadow-lg">{randomTip}</p>
+        <p class="block w-full text-lg sm:text-base text-white/90 mt-2 text-shadow-lg break-words break-all whitespace-pre-wrap">{randomTip}</p>
       {/if}
     </div>
   </div>
