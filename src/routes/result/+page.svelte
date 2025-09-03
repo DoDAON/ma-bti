@@ -11,8 +11,18 @@
   let isLoading = true;
   let showQR = false;
   let shouldAutoDownload = false;
+  const loadingTips: string[] = [
+    '그거 아세요? 분석은 크리퍼가 터지기까지 걸리는 시간보다 더 빠르다는 것을요',
+    '그거 아세요? 마크를 가장 빨리 클리어한 유저가 M(A)BTI의 분석 속도를 보고 감탄했다는 것을요',
+    '그거 아세요? M(A)BTI는 네더라이트 괭이를 만드는 것보다 더 가치가 있다는 것을요',
+    '그거 아세요? 좀비가 죽기 전에 한 행동이 M(A)BTI 테스트였다는 것을요',
+    '그거 아세요? 핑크색 양이 출현하는 것보다 당신을 만난 것이 더 행운이라는 것을요'
+  ];
+  let randomTip = '';
 
   onMount(() => {
+    // 로딩 중 안내 문구 랜덤 선택
+    randomTip = loadingTips[Math.floor(Math.random() * loadingTips.length)];
     // URL에서 결과 데이터 가져오기
     const urlParams = new URLSearchParams(window.location.search);
     const resultData = urlParams.get('data');
@@ -29,8 +39,14 @@
         ...parsed,
         completedAt: new Date(parsed.completedAt)
       } as TestResult;
-      isLoading = false;
       shouldAutoDownload = auto === '1';
+      // 로딩 화면을 최소 5초간 유지
+      const timeoutId = setTimeout(() => {
+        isLoading = false;
+      }, 6000);
+
+      // 언마운트/페이지 이탈 시 타이머 정리
+      return () => clearTimeout(timeoutId);
     } catch (error) {
       console.error('결과 데이터 파싱 오류:', error);
       goto('/');
@@ -80,9 +96,12 @@
 
 {#if isLoading}
   <div class="min-h-screen bg-gradient-to-br from-green-400 via-green-500 to-green-600 flex items-center justify-center">
-    <div class="text-white text-center">
-      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-      <p>결과를 분석하고 있습니다...</p>
+    <div class="text-white text-center transform scale-170">
+      <img src="/creeper.png" alt="로딩 중" class="animate-bounce h-24 w-24 mx-auto mb-4" style="object-fit: contain;" />
+      <b>결과를 분석하고 있습니다...</b>
+      {#if randomTip}
+        <p class="text-sm text-white/90 mt-2 text-shadow-lg">{randomTip}</p>
+      {/if}
     </div>
   </div>
 {:else if result}
