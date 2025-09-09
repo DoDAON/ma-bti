@@ -20,6 +20,7 @@ export interface AxisScoreUnit {
 export interface Choice {
   id: number;
   text: string;
+  subtext?: string;
   axisScores: AxisScoreUnit[]; // 문항 성격에 맞는 축에만 점수 부여
 }
 
@@ -27,6 +28,7 @@ export interface Choice {
 export interface Question {
   id: number;
   text: string;
+  subtext?: string;
   choices: Choice[];
 }
 
