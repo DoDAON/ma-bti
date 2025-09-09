@@ -103,10 +103,13 @@
       <div class="bg-white rounded-2xl shadow-2xl p-8">
         <!-- 질문 -->
         <div class="text-center mb-8">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4">
+          <h2 class="text-2xl font-bold text-gray-800 mb-2 whitespace-pre-line">
             {getCurrentQuestion().text}
           </h2>
-          <p class="text-gray-600">가장 적합한 답을 선택해주세요</p>
+          {#if getCurrentQuestion().subtext}
+            <p class="text-sm text-gray-500 whitespace-pre-line">{getCurrentQuestion().subtext}</p>
+          {/if}
+          <p class="text-gray-600 mt-2">가장 적합한 답을 선택해주세요</p>
         </div>
 
         <!-- 선택지 -->
@@ -120,7 +123,12 @@
                 <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-semibold text-sm">
                   {index + 1}
                 </div>
-                <span class="text-lg text-gray-800 font-medium">{choice.text}</span>
+                <div>
+                  <div class="text-lg text-gray-800 font-medium whitespace-pre-line">{choice.text}</div>
+                  {#if choice.subtext}
+                    <div class="text-sm text-gray-500 whitespace-pre-line">{choice.subtext}</div>
+                  {/if}
+                </div>
               </div>
             </button>
           {/each}
