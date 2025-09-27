@@ -21,12 +21,17 @@ export interface Choice {
   id: number;
   text: string;
   subtext?: string;
+  imageUrl?: string; // 이미지 선택지용
   axisScores: AxisScoreUnit[]; // 문항 성격에 맞는 축에만 점수 부여
 }
+
+// 질문 타입
+export type QuestionType = 'select' | 'image';
 
 // 테스트 질문
 export interface Question {
   id: number;
+  type: QuestionType;
   text: string;
   subtext?: string;
   choices: Choice[];
