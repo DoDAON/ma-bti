@@ -4,6 +4,7 @@ import type { Question, TypeDescription, MABTIType } from './types';
 export const questions: Question[] = [
   {
     id: 1,
+    type: 'select',
     text: "마인크래프트에서 새로운 서버에 처음 접속했을 때 가장 먼저 하는 일은?",
     choices: [
       {
@@ -50,6 +51,7 @@ export const questions: Question[] = [
   },
   {
     id: 2,
+    type: 'select',
     text: "마인크래프트에서 레드스톤 회로를 배울 때 선호하는 방식은?",
     subtext: "레드스톤 회로란? 기계를 만드는 핵심 도구로 기계의 부품들이 움직이도록 설계하는 것이다",
     choices: [
@@ -97,6 +99,7 @@ export const questions: Question[] = [
   },
   {
     id: 3,
+    type: 'select',
     text: "마인크래프트에서 팀 프로젝트 중 의견 충돌이 생겼을 때 어떻게 해결하나요?",
     choices: [
       {
@@ -143,6 +146,7 @@ export const questions: Question[] = [
   },
   {
     id: 4,
+    type: 'select',
     text: "마인크래프트에서 대규모 건축 프로젝트를 시작할 때의 접근 방식은?",
     choices: [
       {
@@ -189,6 +193,7 @@ export const questions: Question[] = [
   },
   {
     id: 5,
+    type: 'select',
     text: "마인크래프트에서 PvP 상황에 직면했을 때의 판단 기준은?",
     choices: [
       {
@@ -235,6 +240,7 @@ export const questions: Question[] = [
   },
   {
     id: 6,
+    type: 'select',
     text: "마인크래프트에서 새로운 바이옴을 발견했을 때 가장 먼저 드는 생각은?",
     choices: [
       {
@@ -281,6 +287,7 @@ export const questions: Question[] = [
   },
   {
     id: 7,
+    type: 'select',
     text: "마인크래프트에서 긴 플레이 세션 후 휴식이 필요할 때는?",
     choices: [
       {
@@ -327,6 +334,7 @@ export const questions: Question[] = [
   },
   {
     id: 8,
+    type: 'select',
     text: "마인크래프트에서 모드나 플러그인을 사용할 때의 기준은?",
     subtext: "모드와 플러그인이란? 마인크래프트에 새로운 요소를 추가하는 부가 요소 도구이다",
     choices: [
@@ -374,6 +382,7 @@ export const questions: Question[] = [
   },
   {
     id: 9,
+    type: 'select',
     text: "마인크래프트에서 서버 이벤트나 대회에 참여할 때의 스타일은?",
     choices: [
       {
@@ -420,6 +429,7 @@ export const questions: Question[] = [
   },
   {
     id: 10,
+    type: 'select',
     text: "마인크래프트에서 가장 성취감을 느끼는 순간은?",
     choices: [
       {
@@ -466,6 +476,7 @@ export const questions: Question[] = [
   },
   {
     id: 11,
+    type: 'select',
     text: "마인크래프트에서 단체를 형성하여 활동할 때 선호하는 역할은?",
     choices: [
       {
@@ -512,6 +523,7 @@ export const questions: Question[] = [
   },
   {
     id: 12,
+    type: 'select',
     text: "마인크래프트에서 인벤토리 관리는 어떻게 하나요?",
     choices: [
       {
@@ -552,6 +564,59 @@ export const questions: Question[] = [
         axisScores: [
           { axis: 'JP', pole: 'P', score: 4 },
           { axis: 'JP', pole: 'J', score: 2 }
+        ]
+      }
+    ]
+  },
+  {
+    id: 13,
+    type: 'image',
+    text: "마인크래프트에서 가장 선호하는 건축 스타일은?",
+    subtext: "아래 이미지 중에서 가장 마음에 드는 건축 스타일을 선택해주세요",
+    choices: [
+      {
+        id: 1,
+        text: "모던 하우스",
+        imageUrl: "/images/modern-house.svg",
+        axisScores: [
+          { axis: 'SN', pole: 'S', score: 4 },
+          { axis: 'TF', pole: 'T', score: 3 }
+        ]
+      },
+      {
+        id: 2,
+        text: "중세 성",
+        imageUrl: "/images/medieval-castle.svg",
+        axisScores: [
+          { axis: 'SN', pole: 'N', score: 4 },
+          { axis: 'JP', pole: 'J', score: 3 }
+        ]
+      },
+      {
+        id: 3,
+        text: "자연 친화적 오두막",
+        imageUrl: "/images/nature-cabin.svg",
+        axisScores: [
+          { axis: 'SN', pole: 'S', score: 3 },
+          { axis: 'TF', pole: 'F', score: 4 }
+        ]
+      },
+      {
+        id: 4,
+        text: "미래적 도시",
+        imageUrl: "/images/futuristic-city.svg",
+        axisScores: [
+          { axis: 'SN', pole: 'N', score: 5 },
+          { axis: 'TF', pole: 'T', score: 3 }
+        ]
+      },
+      {
+        id: 5,
+        text: "아기자기한 마을",
+        imageUrl: "/images/cozy-village.svg",
+        axisScores: [
+          { axis: 'TF', pole: 'F', score: 5 },
+          { axis: 'JP', pole: 'P', score: 3 }
         ]
       }
     ]
@@ -655,5 +720,73 @@ export const typeDescriptions: Record<MABTIType, TypeDescription> = {
     title: '파티 기획자',
     description: '화려하고 즐거운 분위기의 건축물로 축제 같은 마인크래프트를 만드는 엔터테이너입니다. 디스코, 놀이공원, 파티장 등을 만들어 모든 플레이어가 함께 즐길 수 있는 재미있고 활기찬 공간을 창조합니다.',
     characteristics: ['축제적 분위기', '화려한 장식', '엔터테인먼트 공간', '즐거움 전파']
+  }
+};
+
+// MBTI 궁합 데이터
+export const compatibilityData: Record<MABTIType, { 긍정: MABTIType; 부정: MABTIType }> = {
+  "INFP": {
+    "긍정": "ENFJ",
+    "부정": "ESTJ"
+  },
+  "ENFP": {
+    "긍정": "INFJ",
+    "부정": "ISTJ"
+  },
+  "INFJ": {
+    "긍정": "ENTP",
+    "부정": "ESTP"
+  },
+  "ENFJ": {
+    "긍정": "INFP",
+    "부정": "ISTP"
+  },
+  "INTJ": {
+    "긍정": "ENFP",
+    "부정": "ESFP"
+  },
+  "ENTJ": {
+    "긍정": "INFP",
+    "부정": "ISFP"
+  },
+  "INTP": {
+    "긍정": "ENTJ",
+    "부정": "ESFJ"
+  },
+  "ENTP": {
+    "긍정": "INFJ",
+    "부정": "ISFJ"
+  },
+  "ISFP": {
+    "긍정": "ENFJ",
+    "부정": "ENTJ"
+  },
+  "ESFP": {
+    "긍정": "ISFJ",
+    "부정": "INTJ"
+  },
+  "ISFJ": {
+    "긍정": "ESFP",
+    "부정": "ENTP"
+  },
+  "ESFJ": {
+    "긍정": "ISFP",
+    "부정": "INTP"
+  },
+  "ISTP": {
+    "긍정": "ESFJ",
+    "부정": "ENFJ"
+  },
+  "ESTP": {
+    "긍정": "ISFJ",
+    "부정": "INFJ"
+  },
+  "ISTJ": {
+    "긍정": "ESFJ",
+    "부정": "ENFP"
+  },
+  "ESTJ": {
+    "긍정": "ISTP",
+    "부정": "INFP"
   }
 };
