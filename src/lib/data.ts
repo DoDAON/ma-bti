@@ -52,47 +52,46 @@ export const questions: Question[] = [
   {
     id: 2,
     type: 'select',
-    text: "마인크래프트에서 레드스톤 회로를 배울 때 선호하는 방식은?",
-    subtext: "레드스톤 회로란? 기계를 만드는 핵심 도구로 기계의 부품들이 움직이도록 설계하는 것이다",
+    text: "마인크래프트에서 인테리어를 할 때 선호하는 방식은?",
     choices: [
       {
         id: 1,
-        text: "기본 구성 요소부터 차근차근 실습하며 익힌다",
+        text: "회로를 이용해서 모든걸 자동화시킨다",
         axisScores: [
-          { axis: 'SN', pole: 'S', score: 5 },
-          { axis: 'SN', pole: 'N', score: 1 }
+          { axis: 'TF', pole: 'T', score: 5 },
+          { axis: 'TF', pole: 'F', score: 1 }
         ]
       },
       {
         id: 2,
-        text: "전체적인 원리를 이해하고 새로운 회로를 창조해본다",
+        text: "모던한 스타일로 깔끔하게 꾸민다",
         axisScores: [
-          { axis: 'SN', pole: 'N', score: 5 },
-          { axis: 'SN', pole: 'S', score: 1 }
+          { axis: 'TF', pole: 'T', score: 3 },
+          { axis: 'TF', pole: 'F', score: 2 }
         ]
       },
       {
         id: 3,
-        text: "유튜브 튜토리얼을 보며 단계별로 따라 만든다",
+        text: "마인크래프트에 존재하는 모든걸 수집해 가져다 놓는다",
         axisScores: [
-          { axis: 'SN', pole: 'S', score: 4 },
-          { axis: 'SN', pole: 'N', score: 2 }
+          { axis: 'SN', pole: 'S', score: 1 },
+          { axis: 'SN', pole: 'N', score: 5 }
         ]
       },
       {
         id: 4,
-        text: "기존 회로를 분석하며 더 나은 설계를 구상한다",
+        text: "귀여운게 최고다!",
         axisScores: [
-          { axis: 'SN', pole: 'N', score: 4 },
-          { axis: 'SN', pole: 'S', score: 1 }
+          { axis: 'TF', pole: 'T', score: 1 },
+          { axis: 'TF', pole: 'F', score: 5 }
         ]
       },
       {
         id: 5,
-        text: "검증된 회로 설계를 그대로 활용한다",
+        text: "작업대, 화로, 상자가 끝이다. 뭐가 더 필요하지?",
         axisScores: [
-          { axis: 'SN', pole: 'S', score: 3 },
-          { axis: 'SN', pole: 'N', score: 2 }
+          { axis: 'SN', pole: 'S', score: 5 },
+          { axis: 'SN', pole: 'N', score: 1 }
         ]
       }
     ]
@@ -100,7 +99,7 @@ export const questions: Question[] = [
   {
     id: 3,
     type: 'select',
-    text: "마인크래프트에서 팀 프로젝트 중 의견 충돌이 생겼을 때 어떻게 해결하나요?",
+    text: "친구들과 함께 마크를 하다가 다툼이 생겼을 때 어떻게 해결하나요?",
     choices: [
       {
         id: 1,
@@ -112,7 +111,7 @@ export const questions: Question[] = [
       },
       {
         id: 2,
-        text: "모든 팀원의 마음을 헤아려 타협점을 찾는다",
+        text: "친구들의 마음을 헤아려 타협점을 찾는다",
         axisScores: [
           { axis: 'TF', pole: 'F', score: 5 },
           { axis: 'TF', pole: 'T', score: 1 }
@@ -120,7 +119,7 @@ export const questions: Question[] = [
       },
       {
         id: 3,
-        text: "데이터와 사실을 제시하여 명확한 기준을 세운다",
+        text: "팩트로 뚜드려팬다",
         axisScores: [
           { axis: 'TF', pole: 'T', score: 4 },
           { axis: 'TF', pole: 'F', score: 2 }
@@ -128,7 +127,7 @@ export const questions: Question[] = [
       },
       {
         id: 4,
-        text: "팀 분위기를 중시하며 화합을 우선시한다",
+        text: "일단 싸우지 말자고 제안한다",
         axisScores: [
           { axis: 'TF', pole: 'F', score: 4 },
           { axis: 'TF', pole: 'T', score: 2 }
@@ -136,7 +135,7 @@ export const questions: Question[] = [
       },
       {
         id: 5,
-        text: "각자의 가치관을 존중하며 개별적으로 소통한다",
+        text: "개인 1:1 면담시간을 가져본다",
         axisScores: [
           { axis: 'TF', pole: 'F', score: 3 },
           { axis: 'TF', pole: 'T', score: 2 }
@@ -147,7 +146,7 @@ export const questions: Question[] = [
   {
     id: 4,
     type: 'select',
-    text: "마인크래프트에서 대규모 건축 프로젝트를 시작할 때의 접근 방식은?",
+    text: "마인크래프트에서 건축을 할 때 내 접근방식은?",
     choices: [
       {
         id: 1,
@@ -175,7 +174,7 @@ export const questions: Question[] = [
       },
       {
         id: 4,
-        text: "단계별 목표를 설정하고 진도를 체크하며 관리한다",
+        text: "유튜브를 보며 단계별로 따라해본다",
         axisScores: [
           { axis: 'JP', pole: 'J', score: 4 },
           { axis: 'JP', pole: 'P', score: 1 }
@@ -183,7 +182,7 @@ export const questions: Question[] = [
       },
       {
         id: 5,
-        text: "마감일 없이 영감이 떠오를 때마다 조금씩 작업한다",
+        text: "내 영감에 따라 짓는다",
         axisScores: [
           { axis: 'JP', pole: 'P', score: 4 },
           { axis: 'JP', pole: 'J', score: 1 }
@@ -194,11 +193,11 @@ export const questions: Question[] = [
   {
     id: 5,
     type: 'select',
-    text: "마인크래프트에서 PvP 상황에 직면했을 때의 판단 기준은?",
+    text: "마인크래프트에서 친구가 맞다이를 뜨자고 한다! 이때 내 행동은?",
     choices: [
       {
         id: 1,
-        text: "승률과 전략적 우위를 냉정하게 계산한다",
+        text: "어떻게하면 잘 이겼다고 소문이 날 지 냉정하게 계산한다",
         axisScores: [
           { axis: 'TF', pole: 'T', score: 5 },
           { axis: 'TF', pole: 'F', score: 1 }
@@ -206,10 +205,10 @@ export const questions: Question[] = [
       },
       {
         id: 2,
-        text: "상대방의 상황을 고려하여 행동한다",
+        text: "친구의 상황을 고려해 살짝씩 봐준다",
         axisScores: [
-          { axis: 'TF', pole: 'F', score: 5 },
-          { axis: 'TF', pole: 'T', score: 1 }
+          { axis: 'TF', pole: 'F', score: 3 },
+          { axis: 'TF', pole: 'T', score: 2 }
         ]
       },
       {
@@ -230,10 +229,10 @@ export const questions: Question[] = [
       },
       {
         id: 5,
-        text: "내 가치관에 맞는 방식으로 플레이한다",
+        text: "나는 평화주의자이기 때문에 싸우지 않는다",
         axisScores: [
-          { axis: 'TF', pole: 'F', score: 3 },
-          { axis: 'TF', pole: 'T', score: 2 }
+          { axis: 'TF', pole: 'F', score: 5 },
+          { axis: 'TF', pole: 'T', score: 1 }
         ]
       }
     ]
@@ -241,7 +240,7 @@ export const questions: Question[] = [
   {
     id: 6,
     type: 'select',
-    text: "마인크래프트에서 새로운 바이옴을 발견했을 때 가장 먼저 드는 생각은?",
+    text: "마인크래프트 세계를 여행하다 장관이 펼쳐졌다. 가장 먼저 드는 생각은?",
     choices: [
       {
         id: 1,
@@ -253,7 +252,7 @@ export const questions: Question[] = [
       },
       {
         id: 2,
-        text: "이 바이옴만의 독특한 건축 스타일을 상상해본다",
+        text: "이 풍경을 살릴 수 있는 예쁜 건축 스타일을 상상해본다",
         axisScores: [
           { axis: 'SN', pole: 'N', score: 5 },
           { axis: 'SN', pole: 'S', score: 1 }
@@ -261,26 +260,26 @@ export const questions: Question[] = [
       },
       {
         id: 3,
-        text: "실용적인 전초기지를 세울 최적의 위치를 찾는다",
+        text: "오 예쁘다! (다시 원래 목적지로 간다)",
         axisScores: [
           { axis: 'SN', pole: 'S', score: 4 },
-          { axis: 'SN', pole: 'N', score: 2 }
+          { axis: 'TF', pole: 'T', score: 2 }
         ]
       },
       {
         id: 4,
-        text: "키우는 강아지와 오슬렛이 바이옴 풍경과 어울릴지 생각해본다",
+        text: "와 ㅁㅊ (스크린샷을 찍고 그 쪽으로 간다)",
         axisScores: [
           { axis: 'SN', pole: 'N', score: 4 },
-          { axis: 'SN', pole: 'S', score: 1 }
+          { axis: 'TF', pole: 'F', score: 2 }
         ]
       },
       {
         id: 5,
-        text: "환경의 특성을 분석하며 체계적으로 탐사한다",
+        text: "아무 생각이 안든다",
         axisScores: [
-          { axis: 'SN', pole: 'S', score: 3 },
-          { axis: 'SN', pole: 'N', score: 2 }
+          { axis: 'SN', pole: 'S', score: 5 },
+          { axis: 'TF', pole: 'T', score: 3 }
         ]
       }
     ]
@@ -288,7 +287,7 @@ export const questions: Question[] = [
   {
     id: 7,
     type: 'select',
-    text: "마인크래프트에서 긴 플레이 세션 후 휴식이 필요할 때는?",
+    text: "긴 광질을 끝내고 나왔다. 휴식을 취할 때 무엇을 할까?",
     choices: [
       {
         id: 1,
@@ -300,9 +299,9 @@ export const questions: Question[] = [
       },
       {
         id: 2,
-        text: "친구들과 수다를 떨며 캐주얼한 미니게임을 즐긴다",
+        text: "친구들과 수다를 떨며 같이 스크린샷을 찍고 논다",
         axisScores: [
-          { axis: 'EI', pole: 'E', score: 5 },
+          { axis: 'EI', pole: 'E', score: 4 },
           { axis: 'EI', pole: 'I', score: 1 }
         ]
       },
@@ -316,15 +315,15 @@ export const questions: Question[] = [
       },
       {
         id: 4,
-        text: "새로운 플레이어들과 만나 다른 이벤트에 참여한다",
+        text: "다른 친구를 더 불러서 복작복작하게 만든다",
         axisScores: [
-          { axis: 'EI', pole: 'E', score: 4 },
+          { axis: 'EI', pole: 'E', score: 5 },
           { axis: 'EI', pole: 'I', score: 1 }
         ]
       },
       {
         id: 5,
-        text: "개인 공간에서 창작 활동에 몰입한다",
+        text: "게임을 끈다",
         axisScores: [
           { axis: 'EI', pole: 'I', score: 3 },
           { axis: 'EI', pole: 'E', score: 2 }
@@ -335,12 +334,12 @@ export const questions: Question[] = [
   {
     id: 8,
     type: 'select',
-    text: "마인크래프트에서 모드나 플러그인을 사용할 때의 기준은?",
-    subtext: "모드와 플러그인이란? 마인크래프트에 새로운 요소를 추가하는 부가 요소 도구이다",
+    text: "마인크래프트에서 해보고 싶은 모드는?",
+    subtext: "모드란? 마인크래프트에 새로운 요소를 추가하는 도구이다",
     choices: [
       {
         id: 1,
-        text: "검증된 인기 모드 중에서 안정성을 확인하고 설치한다",
+        text: "딱히 모드를 추가하고 싶지 않다",
         axisScores: [
           { axis: 'SN', pole: 'S', score: 5 },
           { axis: 'SN', pole: 'N', score: 1 }
@@ -348,7 +347,7 @@ export const questions: Question[] = [
       },
       {
         id: 2,
-        text: "실험적이고 혁신적인 모드로 새로운 경험을 추구한다",
+        text: "외계인 같이 귀엽고 새로운 게 나오는 모드를 추가하면 재밌을 것 같다",
         axisScores: [
           { axis: 'SN', pole: 'N', score: 5 },
           { axis: 'SN', pole: 'S', score: 1 }
@@ -356,7 +355,7 @@ export const questions: Question[] = [
       },
       {
         id: 3,
-        text: "실용적 기능 위주로 게임플레이 개선에 도움되는 것을 선택한다",
+        text: "플레이가 좀 더 편리해지는 기능이 추가되는 모드가 좋을 것 같다",
         axisScores: [
           { axis: 'SN', pole: 'S', score: 4 },
           { axis: 'SN', pole: 'N', score: 2 }
@@ -364,7 +363,7 @@ export const questions: Question[] = [
       },
       {
         id: 4,
-        text: "내 건물을 더 이쁘고 창의적이게 확장해주는 모드를 우선한다",
+        text: "건축을 좀 더 예쁘고 현실감있게 할 수 있는 모드가 좋을 것 같다",
         axisScores: [
           { axis: 'SN', pole: 'N', score: 4 },
           { axis: 'SN', pole: 'S', score: 2 }
@@ -383,46 +382,46 @@ export const questions: Question[] = [
   {
     id: 9,
     type: 'select',
-    text: "마인크래프트에서 서버 이벤트나 대회에 참여할 때의 스타일은?",
+    text: "마인크래프트 스킨을 고를 때 나만의 기준은?",
     choices: [
       {
         id: 1,
-        text: "사전에 전략을 세우고 철저히 준비하여 참여한다",
+        text: "튜닝의 끝은 순정! 그냥 기본 스킨을 쓴다",
         axisScores: [
-          { axis: 'JP', pole: 'J', score: 5 },
-          { axis: 'JP', pole: 'P', score: 1 }
+          { axis: 'TF', pole: 'T', score: 4 },
+          { axis: 'SN', pole: 'S', score: 5 }
         ]
       },
       {
         id: 2,
-        text: "그때그때 상황을 보며 즉석에서 유연하게 대응한다",
+        text: "웃기게 생기면 쓴다",
         axisScores: [
-          { axis: 'JP', pole: 'P', score: 5 },
-          { axis: 'JP', pole: 'J', score: 1 }
+          { axis: 'TF', pole: 'F', score: 2 },
+          { axis: 'EI', pole: 'E', score: 4 }
         ]
       },
       {
         id: 3,
-        text: "기본 계획은 세우되 상황에 따라 조정할 여지를 둔다",
+        text: "예쁘거나 간지나게 생기면 쓴다",
         axisScores: [
-          { axis: 'JP', pole: 'P', score: 3 },
-          { axis: 'JP', pole: 'J', score: 2 }
+          { axis: 'TF', pole: 'F', score: 4 },
+          { axis: 'SN', pole: 'N', score: 2 }
         ]
       },
       {
         id: 4,
-        text: "시간 관리와 체계적 준비로 목표 달성에 집중한다",
+        text: "단순하게 생긴 게 좋다",
         axisScores: [
-          { axis: 'JP', pole: 'J', score: 4 },
-          { axis: 'JP', pole: 'P', score: 2 }
+          { axis: 'TF', pole: 'T', score: 3 },
+          { axis: 'SN', pole: 'S', score: 2 }
         ]
       },
       {
         id: 5,
-        text: "흐름을 타며 여러 활동에 동시에 참여한다",
+        text: "화려하고 눈에 잘 띄는게 좋다",
         axisScores: [
-          { axis: 'JP', pole: 'P', score: 4 },
-          { axis: 'JP', pole: 'J', score: 2 }
+          { axis: 'EI', pole: 'E', score: 5 },
+          { axis: 'TF', pole: 'F', score: 2 }
         ]
       }
     ]
@@ -434,7 +433,7 @@ export const questions: Question[] = [
     choices: [
       {
         id: 1,
-        text: "복잡한 기계나 시스템을 완벽하게 설계했을 때",
+        text: "효율적인 자동화 시스템으로 생산성이 향상될 때",
         axisScores: [
           { axis: 'TF', pole: 'T', score: 5 },
           { axis: 'TF', pole: 'F', score: 1 }
@@ -442,7 +441,7 @@ export const questions: Question[] = [
       },
       {
         id: 2,
-        text: "다른 플레이어들이 내 작품을 보고 감동할 때",
+        text: "친구들이 내 건축물을 보고 감탄할 때",
         axisScores: [
           { axis: 'TF', pole: 'F', score: 5 },
           { axis: 'TF', pole: 'T', score: 1 }
@@ -450,7 +449,7 @@ export const questions: Question[] = [
       },
       {
         id: 3,
-        text: "효율적인 자동화 시스템으로 생산성이 향상될 때",
+        text: "큰 동굴의 구석구석 모든 공간을 탐험완료했을 때",
         axisScores: [
           { axis: 'TF', pole: 'T', score: 4 },
           { axis: 'TF', pole: 'F', score: 2 }
@@ -458,7 +457,7 @@ export const questions: Question[] = [
       },
       {
         id: 4,
-        text: "초보 플레이어를 도와 함께 성장했을 때",
+        text: "강아지, 고양이, 앵무새를 길들이는 데 성공했을 때",
         axisScores: [
           { axis: 'TF', pole: 'F', score: 4 },
           { axis: 'TF', pole: 'T', score: 2 }
@@ -466,7 +465,7 @@ export const questions: Question[] = [
       },
       {
         id: 5,
-        text: "나만의 세계관을 구현한 독창적 작품이 완성될 때",
+        text: "마인크래프트의 엔딩을 봤을 때",
         axisScores: [
           { axis: 'TF', pole: 'F', score: 3 },
           { axis: 'TF', pole: 'T', score: 2 }
@@ -477,11 +476,11 @@ export const questions: Question[] = [
   {
     id: 11,
     type: 'select',
-    text: "마인크래프트에서 단체를 형성하여 활동할 때 선호하는 역할은?",
+    text: "친구와 멀티플레이를 할 때 주로 담당하는 역할은?",
     choices: [
       {
         id: 1,
-        text: "뒤에서 묵묵히 자원 수집과 기반 시설을 담당한다",
+        text: "멀티플레이를 안좋아한다",
         axisScores: [
           { axis: 'EI', pole: 'I', score: 5 },
           { axis: 'EI', pole: 'E', score: 1 }
@@ -489,7 +488,7 @@ export const questions: Question[] = [
       },
       {
         id: 2,
-        text: "리더 역할을 맡아 팀원들과 소통하며 활동을 이끈다",
+        text: "친구들에게 뭔가를 자꾸 시킨다",
         axisScores: [
           { axis: 'EI', pole: 'E', score: 5 },
           { axis: 'EI', pole: 'I', score: 1 }
@@ -497,7 +496,7 @@ export const questions: Question[] = [
       },
       {
         id: 3,
-        text: "소수 팀원과 협력하여 전문적인 프로젝트를 담당한다",
+        text: "뒤에서 묵묵히 자원 수집을 한다",
         axisScores: [
           { axis: 'EI', pole: 'I', score: 4 },
           { axis: 'EI', pole: 'E', score: 2 }
@@ -505,7 +504,7 @@ export const questions: Question[] = [
       },
       {
         id: 4,
-        text: "홍보나 대외 활동으로 새로운 멤버를 모집한다",
+        text: "잼얘(수다)를 담당한다",
         axisScores: [
           { axis: 'EI', pole: 'E', score: 4 },
           { axis: 'EI', pole: 'I', score: 1 }
@@ -513,7 +512,7 @@ export const questions: Question[] = [
       },
       {
         id: 5,
-        text: "전략 기획이나 내부 시스템 개선에 집중한다",
+        text: "건축가가 된다",
         axisScores: [
           { axis: 'EI', pole: 'I', score: 3 },
           { axis: 'EI', pole: 'E', score: 2 }
@@ -536,7 +535,7 @@ export const questions: Question[] = [
       },
       {
         id: 2,
-        text: "필요할 때마다 찾아쓰는 방식으로 자유롭게 관리한다",
+        text: "그냥 바닥에다가 던져놓는다",
         axisScores: [
           { axis: 'JP', pole: 'P', score: 5 },
           { axis: 'JP', pole: 'J', score: 1 }
@@ -552,10 +551,10 @@ export const questions: Question[] = [
       },
       {
         id: 4,
-        text: "셜커상자마다 라벨을 붙이고 체계적인 보관 시스템을 구축한다",
+        text: "처음엔 분류해놓다가 점점 어지렵혀진다",
         axisScores: [
-          { axis: 'JP', pole: 'J', score: 4 },
-          { axis: 'JP', pole: 'P', score: 1 }
+          { axis: 'JP', pole: 'J', score: 2 },
+          { axis: 'JP', pole: 'P', score: 3 }
         ]
       },
       {
