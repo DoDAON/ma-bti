@@ -1,0 +1,10 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#f3f4f6"/>
+  <rect x="40" y="140" width="20" height="40" fill="#6366f1"/>
+  <rect x="70" y="120" width="25" height="60" fill="#8b5cf6"/>
+  <rect x="105" y="100" width="30" height="80" fill="#ec4899"/>
+  <rect x="145" y="130" width="20" height="50" fill="#06b6d4"/>
+  <rect x="90" y="110" width="5" height="15" fill="#fbbf24"/>
+  <rect x="120" y="90" width="5" height="15" fill="#fbbf24"/>
+  <text x="100" y="190" text-anchor="middle" font-family="Arial" font-size="12" fill="#374151">미래 도시</text>
+</svg>
