@@ -130,7 +130,9 @@
       <div class="bg-white rounded-2xl shadow-2xl p-8">
         <!-- 결과 헤더 -->
         <div class="text-center mb-8">
-          <img src="/images.png" alt="result icon" class="mx-auto mb-4 object-contain" style="width: 100px; height: 120px;" />
+          <div class="mx-auto mb-4 flex justify-center items-center" style="width: 100px; height: 120px;">
+            <img src="/images.png" alt="result icon" class="object-contain w-full h-full" />
+          </div>
           <h2 class="text-3xl font-bold text-gray-800 mb-2">
             {result.name}님의 M(A)BTI
           </h2>

@@ -585,11 +585,11 @@ export const questions: Question[] = [
       },
       {
         id: 2,
-        text: "중세 성",
+        text: "리치맨 하우스",
         imageUrl: "/images/medieval-castle.svg",
         axisScores: [
-          { axis: 'SN', pole: 'N', score: 4 },
-          { axis: 'JP', pole: 'J', score: 3 }
+          { axis: 'SN', pole: 'S', score: 3 },
+          { axis: 'JP', pole: 'P', score: 4 }
         ]
       },
       {
@@ -597,7 +597,7 @@ export const questions: Question[] = [
         text: "자연 친화적 오두막",
         imageUrl: "/images/nature-cabin.svg",
         axisScores: [
-          { axis: 'SN', pole: 'S', score: 3 },
+          { axis: 'SN', pole: 'N', score: 3 },
           { axis: 'TF', pole: 'F', score: 4 }
         ]
       },

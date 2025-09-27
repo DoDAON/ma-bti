@@ -122,105 +122,106 @@
 </div>
 
 <!-- 결과 이미지용 컨테이너 (화면에는 보이지 않도록 오프스크린 배치) -->
-<div bind:this={resultContainer} style="background-color: white; padding: 32px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 448px; position: absolute; left: -10000px; top: -10000px; font-size: 16px; -webkit-text-size-adjust: 100%; font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, -apple-system, sans-serif;">
+<div bind:this={resultContainer} style="background-color: white; padding: 48px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 1000px; height: 700px; position: absolute; left: -10000px; top: -10000px; font-size: 16px; -webkit-text-size-adjust: 100%; font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, -apple-system, sans-serif; overflow: hidden;">
   <!-- 워터마크 -->
   <div style="position: absolute; top: 1rem; right: 1rem; color: #22c55e; font-size: 0.875rem; font-weight: 600;">
     M(A)BTI
   </div>
 
-  <!-- 결과 헤더 -->
-  <div style="text-align: center; margin-bottom: 1.5rem;">
-    <img src="/images.png" alt="result icon" style="display: block; margin: 0 auto 0.75rem; width: 100px; height: 120px; object-fit: contain;" />
-    <h2 style="font-size: 1.25rem; font-weight: bold; color: #1f2937; margin-bottom: 0.25rem;">
-      {result.name}님의 M(A)BTI
-    </h2>
-    <div style="font-size: 2.25rem; font-weight: bold; color: #22c55e; margin-bottom: 0.5rem;">
-      {result.type}
-    </div>
-    <p style="font-size: 1.125rem; color: #4b5563; font-weight: 500;">
-      {getTypeDescription()?.title}
-    </p>
-  </div>
-
-  <!-- 유형 설명 -->
-  <div style="margin-bottom: 1.5rem; padding: 1rem; background-color: #f9fafb; border-radius: 0.5rem;">
-    <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.5rem;">유형 설명</h3>
-    <p style="font-size: 0.875rem; color: #374151; line-height: 1.6;">
-      {getTypeDescription()?.description}
-    </p>
-  </div>
-
-  <!-- 축 분포 -->
-  <div style="margin-bottom: 1rem;">
-    <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">성향 분포</h3>
-    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-      {#each getAxisBars() as row}
-        <div style="display: flex; flex-direction: column; gap: 0.25rem;">
-          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #374151; font-weight: 500;">
-            <span>{row.label}</span>
-            <span>{row.pair}</span>
-          </div>
-          <div style="display: flex; width: 100%; height: 0.625rem; border-radius: 9999px; overflow: hidden; background-color: #e5e7eb;">
-            <div style="background-color: #22c55e; height: 100%; width: {row.value}%;"></div>
-            <div style="background-color: #9ca3af; height: 100%; width: {row.pairValue}%;"></div>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #6b7280;">
-            <span>{row.value}%</span>
-            <span>{row.pairValue}%</span>
-          </div>
+  <!-- 가로형 레이아웃 컨테이너 -->
+  <div style="display: flex; height: 100%; gap: 48px;">
+    <!-- 좌측 영역: 유형 정보 및 설명 -->
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+      <!-- 결과 헤더 -->
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <img src="/images.png" alt="result icon" style="display: block; margin: 0 auto 1rem; width: 80px; height: auto; object-fit: contain;" />
+        <h2 style="font-size: 1.125rem; font-weight: bold; color: #1f2937; margin-bottom: 0.5rem;">
+          {result.name}님의 M(A)BTI
+        </h2>
+        <div style="font-size: 2.5rem; font-weight: bold; color: #22c55e; margin-bottom: 0.75rem;">
+          {result.type}
         </div>
-      {/each}
-    </div>
-  </div>
-
-  <!-- MBTI 궁합 -->
-  <div style="margin-bottom: 1rem;">
-    <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">MBTI 궁합</h3>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-      <!-- 가장 잘 맞는 궁합 -->
-      <div style="padding: 1rem; background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 1px solid #bbf7d0; border-radius: 0.5rem;">
-        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-          <div style="width: 1.5rem; height: 1.5rem; background-color: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.5rem;">
-            <span style="color: white; font-size: 0.75rem; font-weight: bold;">♥</span>
-          </div>
-          <h4 style="font-size: 0.875rem; font-weight: 600; color: #166534;">가장 잘 맞는 궁합</h4>
-        </div>
-        {#if getCompatibilityInfo()}
-          <div style="text-align: center;">
-            <div style="font-size: 1.5rem; font-weight: bold; color: #16a34a; margin-bottom: 0.25rem;">
-              {getCompatibilityInfo().긍정}
-            </div>
-            <p style="font-size: 0.75rem; color: #166534; font-weight: 500;">
-              {typeDescriptions[getCompatibilityInfo().긍정].title}
-            </p>
-          </div>
-        {/if}
+        <p style="font-size: 1.25rem; color: #4b5563; font-weight: 500;">
+          {getTypeDescription()?.title}
+        </p>
       </div>
 
-      <!-- 가장 안 맞는 궁합 -->
-      <div style="padding: 1rem; background: linear-gradient(135deg, #fef2f2 0%, #fef7f7 100%); border: 1px solid #fecaca; border-radius: 0.5rem;">
-        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-          <div style="width: 1.5rem; height: 1.5rem; background-color: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.5rem;">
-            <span style="color: white; font-size: 0.75rem; font-weight: bold;">⚡</span>
-          </div>
-          <h4 style="font-size: 0.875rem; font-weight: 600; color: #991b1b;">가장 안 맞는 궁합</h4>
-        </div>
-        {#if getCompatibilityInfo()}
-          <div style="text-align: center;">
-            <div style="font-size: 1.5rem; font-weight: bold; color: #dc2626; margin-bottom: 0.25rem;">
-              {getCompatibilityInfo().부정}
+      <!-- 유형 설명 -->
+      <div style="padding: 1.5rem; background-color: #f9fafb; border-radius: 0.75rem; margin-bottom: 2rem;">
+        <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">유형 설명</h3>
+        <p style="font-size: 0.95rem; color: #374151; line-height: 1.7;">
+          {getTypeDescription()?.description}
+        </p>
+      </div>
+    </div>
+
+    <!-- 우측 영역: 성향 분포 및 궁합 -->
+    <div style="flex: 1; display: flex; flex-direction: column; gap: 2rem;">
+      <!-- 축 분포 -->
+      <div style="flex: 1;">
+        <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 1.25rem;">성향 분포</h3>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          {#each getAxisBars() as row}
+            <div style="display: flex; flex-direction: column; gap: 0.375rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #374151; font-weight: 500; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span>{row.label}</span>
+                  <span style="font-size: 0.75rem; color: #6b7280;">{row.value}%</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 0.75rem; color: #6b7280;">{row.pairValue}%</span>
+                  <span>{row.pair}</span>
+                </div>
+              </div>
+              <div style="display: flex; width: 100%; height: 0.75rem; border-radius: 9999px; overflow: hidden; background-color: #e5e7eb;">
+                <div style="background-color: #22c55e; height: 100%; width: {row.value}%;"></div>
+                <div style="background-color: #9ca3af; height: 100%; width: {row.pairValue}%;"></div>
+              </div>
             </div>
-            <p style="font-size: 0.75rem; color: #991b1b; font-weight: 500;">
-              {typeDescriptions[getCompatibilityInfo().부정].title}
-            </p>
+          {/each}
+        </div>
+      </div>
+
+      <!-- MBTI 궁합 -->
+      <div style="flex: 1;">
+        <h3 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; margin-bottom: 1.25rem;">MBTI 궁합</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+          <!-- 가장 잘 맞는 궁합 -->
+          <div style="padding: 1.5rem; background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 1px solid #bbf7d0; border-radius: 0.75rem;">
+            <h4 style="font-size: 1rem; font-weight: 600; color: #166534; margin-bottom: 1rem; text-align: center;">가장 잘 맞는 궁합</h4>
+            {#if getCompatibilityInfo()}
+              <div style="text-align: center;">
+                <div style="font-size: 1.75rem; font-weight: bold; color: #16a34a; margin-bottom: 0.5rem;">
+                  {getCompatibilityInfo().긍정}
+                </div>
+                <p style="font-size: 0.875rem; color: #166534; font-weight: 500;">
+                  {typeDescriptions[getCompatibilityInfo().긍정].title}
+                </p>
+              </div>
+            {/if}
           </div>
-        {/if}
+
+          <!-- 가장 안 맞는 궁합 -->
+          <div style="padding: 1.5rem; background: linear-gradient(135deg, #fef2f2 0%, #fef7f7 100%); border: 1px solid #fecaca; border-radius: 0.75rem;">
+            <h4 style="font-size: 1rem; font-weight: 600; color: #991b1b; margin-bottom: 1rem; text-align: center;">가장 안 맞는 궁합</h4>
+            {#if getCompatibilityInfo()}
+              <div style="text-align: center;">
+                <div style="font-size: 1.75rem; font-weight: bold; color: #dc2626; margin-bottom: 0.5rem;">
+                  {getCompatibilityInfo().부정}
+                </div>
+                <p style="font-size: 0.875rem; color: #991b1b; font-weight: 500;">
+                  {typeDescriptions[getCompatibilityInfo().부정].title}
+                </p>
+              </div>
+            {/if}
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- 테스트 정보 -->
-  <div style="text-align: center; font-size: 0.75rem; color: #6b7280;">
+  <!-- 테스트 정보 (하단 고정) -->
+  <div style="position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); text-align: center; font-size: 0.75rem; color: #6b7280;">
     <p>테스트 완료: {formatDate(result.completedAt)}</p>
     <p>YUMC from Yeungnam University</p>
   </div>
