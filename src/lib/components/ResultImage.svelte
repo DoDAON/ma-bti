@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import html2canvas from 'html2canvas';
   import type { TestResult } from '../types';
-  import { typeDescriptions } from '../data';
+  import { typeDescriptions, compatibilityData } from '../data';
   import { getAxisPercentages } from '../utils';
 
   export let result: TestResult;
@@ -37,6 +37,10 @@
       hour: '2-digit',
       minute: '2-digit'
     }).format(new Date(date));
+  }
+
+  function getCompatibilityInfo() {
+    return compatibilityData[result.type];
   }
 
   async function waitForStableRender(container: HTMLElement) {
@@ -166,6 +170,52 @@
           </div>
         </div>
       {/each}
+    </div>
+  </div>
+
+  <!-- MBTI 궁합 -->
+  <div style="margin-bottom: 1rem;">
+    <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.75rem;">MBTI 궁합</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+      <!-- 가장 잘 맞는 궁합 -->
+      <div style="padding: 1rem; background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 1px solid #bbf7d0; border-radius: 0.5rem;">
+        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+          <div style="width: 1.5rem; height: 1.5rem; background-color: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.5rem;">
+            <span style="color: white; font-size: 0.75rem; font-weight: bold;">♥</span>
+          </div>
+          <h4 style="font-size: 0.875rem; font-weight: 600; color: #166534;">가장 잘 맞는 궁합</h4>
+        </div>
+        {#if getCompatibilityInfo()}
+          <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: bold; color: #16a34a; margin-bottom: 0.25rem;">
+              {getCompatibilityInfo().긍정}
+            </div>
+            <p style="font-size: 0.75rem; color: #166534; font-weight: 500;">
+              {typeDescriptions[getCompatibilityInfo().긍정].title}
+            </p>
+          </div>
+        {/if}
+      </div>
+
+      <!-- 가장 안 맞는 궁합 -->
+      <div style="padding: 1rem; background: linear-gradient(135deg, #fef2f2 0%, #fef7f7 100%); border: 1px solid #fecaca; border-radius: 0.5rem;">
+        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+          <div style="width: 1.5rem; height: 1.5rem; background-color: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.5rem;">
+            <span style="color: white; font-size: 0.75rem; font-weight: bold;">⚡</span>
+          </div>
+          <h4 style="font-size: 0.875rem; font-weight: 600; color: #991b1b;">가장 안 맞는 궁합</h4>
+        </div>
+        {#if getCompatibilityInfo()}
+          <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: bold; color: #dc2626; margin-bottom: 0.25rem;">
+              {getCompatibilityInfo().부정}
+            </div>
+            <p style="font-size: 0.75rem; color: #991b1b; font-weight: 500;">
+              {typeDescriptions[getCompatibilityInfo().부정].title}
+            </p>
+          </div>
+        {/if}
+      </div>
     </div>
   </div>
 

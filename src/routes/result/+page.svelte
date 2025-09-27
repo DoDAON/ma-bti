@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
-  import { typeDescriptions } from '$lib/data';
+  import { typeDescriptions, compatibilityData } from '$lib/data';
   import type { TestResult } from '$lib/types';
   import { getAxisPercentages } from '$lib/utils';
   import QRCode from '$lib/components/QRCode.svelte';
@@ -88,6 +88,11 @@
       minute: '2-digit'
     }).format(new Date(date));
   }
+
+  function getCompatibilityInfo() {
+    if (!result) return null;
+    return compatibilityData[result.type];
+  }
 </script>
 
 <svelte:head>
@@ -173,6 +178,65 @@
                 </div>
               </div>
             {/each}
+          </div>
+        </div>
+
+        <!-- MBTI 궁합 -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">MBTI 궁합</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- 가장 잘 맞는 궁합 -->
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
+              <div class="flex items-center mb-3">
+                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-white text-sm font-bold">♥</span>
+                </div>
+                <h4 class="text-lg font-semibold text-green-800">가장 잘 맞는 궁합</h4>
+              </div>
+              {#if getCompatibilityInfo()}
+                {@const compatibility = getCompatibilityInfo()}
+                {#if compatibility}
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-green-600 mb-2">
+                      {compatibility.긍정}
+                    </div>
+                  <p class="text-sm text-green-700 font-medium">
+                    {typeDescriptions[compatibility.긍정].title}
+                  </p>
+                  </div>
+                {/if}
+              {/if}
+            </div>
+
+            <!-- 가장 안 맞는 궁합 -->
+            <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 border border-red-200">
+              <div class="flex items-center mb-3">
+                <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3">
+                  <span class="text-white text-sm font-bold">⚡</span>
+                </div>
+                <h4 class="text-lg font-semibold text-red-800">가장 안 맞는 궁합</h4>
+              </div>
+              {#if getCompatibilityInfo()}
+                {@const compatibility = getCompatibilityInfo()}
+                {#if compatibility}
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-red-600 mb-2">
+                      {compatibility.부정}
+                    </div>
+                  <p class="text-sm text-red-700 font-medium">
+                    {typeDescriptions[compatibility.부정].title}
+                  </p>
+                  </div>
+                {/if}
+              {/if}
+            </div>
+          </div>
+          
+          <!-- 궁합 설명 -->
+          <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+            <p class="text-sm text-gray-600 text-center">
+              💡 궁합 정보는 MBTI 이론을 바탕으로 한 참고 자료입니다. 실제 인간관계는 더 복잡하고 다양한 요소가 영향을 미칩니다.
+            </p>
           </div>
         </div>
 
