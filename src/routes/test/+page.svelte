@@ -103,6 +103,29 @@
       <div class="bg-white rounded-2xl shadow-2xl p-8">
         <!-- 질문 -->
         <div class="text-center mb-8">
+          {#if getCurrentQuestion().titleImage}
+            <div class="flex justify-center mb-4">
+              <div class="group relative bg-gray-50 border-2 border-transparent rounded-xl overflow-hidden w-60 md:w-76">
+                <div class="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                  <img 
+                    src={getCurrentQuestion().titleImage}
+                    alt="질문 타이틀 이미지"
+                    class="w-full h-full object-cover"
+                    on:error={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = 'none';
+                      ((e.currentTarget as HTMLImageElement).nextElementSibling as HTMLElement).style.display = 'flex';
+                    }}
+                  />
+                  <div class="hidden w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                    <div class="text-gray-500 text-center">
+                      <div class="text-2xl mb-2">🏠</div>
+                      <div class="text-sm">이미지 준비중</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {/if}
           <h2 class="text-2xl font-bold text-gray-800 mb-2 whitespace-pre-line">
             {getCurrentQuestion().text}
           </h2>

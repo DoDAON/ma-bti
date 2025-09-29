@@ -240,6 +240,7 @@ export const questions: Question[] = [
   {
     id: 6,
     type: 'select',
+    titleImage: "images/minister.png",
     text: "마인크래프트 세계를 여행하다 장관이 펼쳐졌다. 가장 먼저 드는 생각은?",
     choices: [
       {
