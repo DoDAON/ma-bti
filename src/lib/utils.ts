@@ -27,6 +27,25 @@ export const updateAxisTally = (current: AxisTally, axisScores: AxisScoreUnit[])
   return next;
 };
 
+// 선택했던 축 점수들을 되돌림 (이전 문항으로 돌아갈 때 사용)
+export const revertAxisTally = (current: AxisTally, axisScores: AxisScoreUnit[]): AxisTally => {
+  const next: AxisTally = { ...current };
+  for (const unit of axisScores) {
+    if (unit.score <= 0) continue;
+    switch (unit.pole) {
+      case 'E': next.E -= unit.score; break;
+      case 'I': next.I -= unit.score; break;
+      case 'S': next.S -= unit.score; break;
+      case 'N': next.N -= unit.score; break;
+      case 'T': next.T -= unit.score; break;
+      case 'F': next.F -= unit.score; break;
+      case 'J': next.J -= unit.score; break;
+      case 'P': next.P -= unit.score; break;
+    }
+  }
+  return next;
+};
+
 // 축 누적에서 최종 유형 계산
 export const deriveTypeFromAxis = (tally: AxisTally): MABTIType => {
   const ei = tally.E >= tally.I ? 'E' : 'I';

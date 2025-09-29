@@ -3,13 +3,15 @@
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
   import { questions } from '$lib/data';
-  import { initializeAxisTally, updateAxisTally, calculateProgress, generateResult } from '$lib/utils';
+  import { initializeAxisTally, updateAxisTally, revertAxisTally, calculateProgress, generateResult } from '$lib/utils';
   import type { AxisTally, AxisScoreUnit } from '$lib/types';
 
   let currentQuestionIndex = 0;
   let axisTally: AxisTally;
   let name = '';
   let isLoading = true;
+  // 각 질문에서 사용자가 선택한 축 점수 히스토리 (이전으로 시 롤백용)
+  const answerHistory: AxisScoreUnit[][] = [];
 
   onMount(() => {
     // URL에서 이름 가져오기
@@ -29,6 +31,8 @@
   function handleChoiceSelect(axisScores: AxisScoreUnit[]) {
     // 축 점수 업데이트
     axisTally = updateAxisTally(axisTally, axisScores);
+    // 현재 질문의 선택을 히스토리에 저장
+    answerHistory[currentQuestionIndex] = axisScores;
 
     // 현재 축 누적 점수 콘솔 출력
     console.log('[MABTI] Axis Tally', {
@@ -47,6 +51,26 @@
       const resultData = encodeURIComponent(JSON.stringify(result));
       goto(`/result?data=${resultData}`);
     }
+  }
+
+  // 이전으로 이동 (1번 질문에서는 비활성)
+  function goToPreviousQuestion() {
+    if (currentQuestionIndex === 0) return;
+    // 직전에 반영했던 점수를 롤백
+    const lastScores = answerHistory[currentQuestionIndex - 1];
+    if (lastScores && lastScores.length > 0) {
+      axisTally = revertAxisTally(axisTally, lastScores);
+    }
+    // 인덱스 이동 및 해당 히스토리 제거
+    currentQuestionIndex--;
+    answerHistory[currentQuestionIndex] = [];
+    // 콘솔
+    console.log('[MABTI] Axis Tally', {
+      E: axisTally.E, I: axisTally.I,
+      S: axisTally.S, N: axisTally.N,
+      T: axisTally.T, F: axisTally.F,
+      J: axisTally.J, P: axisTally.P
+    });
   }
 
   function getProgressPercentage() {
@@ -81,6 +105,14 @@
               <p class="text-sm text-gray-600">{name}님의 성향 분석</p>
             </div>
           </div>
+          {#if currentQuestionIndex > 0}
+            <button
+              on:click={goToPreviousQuestion}
+              class="px-3 py-2 rounded-lg bg-white text-green-700 hover:bg-green-50 transition"
+            >
+              ← 이전으로
+            </button>
+          {/if}
           <div class="text-right">
             <p class="text-sm text-gray-600">질문 {currentQuestionIndex + 1} / {questions.length}</p>
           </div>
