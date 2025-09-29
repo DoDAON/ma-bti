@@ -576,34 +576,34 @@ export const questions: Question[] = [
       {
         id: 1,
         text: "모던 하우스",
-        imageUrl: "/images/modern-house.svg",
+        imageUrl: "/images/13_1.jpg",
         axisScores: [
-          { axis: 'SN', pole: 'S', score: 4 },
+          { axis: 'SN', pole: 'S', score: 3 },
           { axis: 'TF', pole: 'T', score: 3 }
         ]
       },
       {
         id: 2,
         text: "리치맨 하우스",
-        imageUrl: "/images/medieval-castle.svg",
+        imageUrl: "/images/13_2.png",
         axisScores: [
-          { axis: 'SN', pole: 'S', score: 3 },
+          { axis: 'SN', pole: 'S', score: 4 },
           { axis: 'JP', pole: 'P', score: 4 }
         ]
       },
       {
         id: 3,
         text: "자연 친화적 오두막",
-        imageUrl: "/images/nature-cabin.svg",
+        imageUrl: "/images/13_3.png",
         axisScores: [
           { axis: 'SN', pole: 'N', score: 3 },
-          { axis: 'TF', pole: 'F', score: 4 }
+          { axis: 'TF', pole: 'F', score: 5 }
         ]
       },
       {
         id: 4,
         text: "미래적 도시",
-        imageUrl: "/images/futuristic-city.svg",
+        imageUrl: "/images/13_4.jpg",
         axisScores: [
           { axis: 'SN', pole: 'N', score: 5 },
           { axis: 'TF', pole: 'T', score: 3 }
@@ -612,10 +612,63 @@ export const questions: Question[] = [
       {
         id: 5,
         text: "아기자기한 마을",
-        imageUrl: "/images/cozy-village.svg",
+        imageUrl: "/images/13_5.jpg",
         axisScores: [
           { axis: 'TF', pole: 'F', score: 5 },
           { axis: 'JP', pole: 'P', score: 3 }
+        ]
+      }
+    ]
+  },
+  {
+    id: 14,
+    type: 'image',
+    text: "큰일이 났어!! 어떤 큰일이지?",
+    subtext: "자신이 생각하는 가장 큰일난 상황을 골라주세요",
+    choices: [
+      {
+        id: 1,
+        text: "창고에 크리퍼가 터져버렸다!",
+        imageUrl: "/images/14_1.png",
+        axisScores: [
+          { axis: 'JP', pole: 'J', score: 4 },
+          { axis: 'SN', pole: 'N', score: 2 }
+        ]
+      },
+      {
+        id: 2,
+        text: "애지중지 키우던 고양이가 죽어버렸어...",
+        imageUrl: "/images/14_2.png",
+        axisScores: [
+          { axis: 'EI', pole: 'I', score: 2 },
+          { axis: 'TF', pole: 'F', score: 4 }
+        ]
+      },
+      {
+        id: 3,
+        text: "엔더맨과 아이컨택...!?",
+        imageUrl: "/images/14_3.jpg",
+        axisScores: [
+          { axis: 'EI', pole: 'I', score: 4 },
+          { axis: 'SN', pole: 'S', score: 3 }
+        ]
+      },
+      {
+        id: 4,
+        text: "어두운 동굴, 돌아가는 길을 까먹었다",
+        imageUrl: "/images/14_4.jpeg",
+        axisScores: [
+          { axis: 'JP', pole: 'P', score: 3 },
+          { axis: 'SN', pole: 'N', score: 4 }
+        ]
+      },
+      {
+        id: 5,
+        text: "실수로 내 밭을 밟아버렸다..",
+        imageUrl: "/images/14_5.png",
+        axisScores: [
+          { axis: 'TF', pole: 'F', score: 2 },
+          { axis: 'JP', pole: 'J', score: 4 }
         ]
       }
     ]
