@@ -5,19 +5,19 @@ export const questions: Question[] = [
   {
     id: 1,
     type: 'select',
-    text: "마인크래프트에서 새로운 서버에 처음 접속했을 때 가장 먼저 하는 일은?",
+    text: "친구가 초대한 나의 첫 마인크래프트 세상, 어떤 것부터 할까?",
     choices: [
       {
         id: 1,
         text: "조용히 스폰 주변을 탐색하며 혼자 정착지를 찾아본다",
         axisScores: [
-          { axis: 'EI', pole: 'I', score: 5 },
+          { axis: 'EI', pole: 'I', score: 4 },
           { axis: 'EI', pole: 'E', score: 1 }
         ]
       },
       {
         id: 2,
-        text: "채팅으로 다른 플레이어들에게 인사하며 정보를 얻는다",
+        text: "일단 친구에게 선빵을 날린다",
         axisScores: [
           { axis: 'EI', pole: 'E', score: 5 },
           { axis: 'EI', pole: 'I', score: 1 }
@@ -25,7 +25,7 @@ export const questions: Question[] = [
       },
       {
         id: 3,
-        text: "근처 플레이어 몇 명과 소규모 그룹을 만들어 함께 시작한다",
+        text: "근처 마을을 먼저 찾아 친구와 정착한다",
         axisScores: [
           { axis: 'EI', pole: 'E', score: 3 },
           { axis: 'EI', pole: 'I', score: 2 }
@@ -33,30 +33,31 @@ export const questions: Question[] = [
       },
       {
         id: 4,
-        text: "서버 규칙과 시스템을 먼저 파악한 후 계획을 세운다",
+        text: "앞으로의 여행을 위한 계획을 성실히 세운다",
         axisScores: [
           { axis: 'EI', pole: 'I', score: 3 },
-          { axis: 'EI', pole: 'E', score: 2 }
+          { axis: 'JP', pole: 'J', score: 2 }
         ]
       },
       {
         id: 5,
-        text: "전체 채팅에서 활발히 소통하며 많은 사람들과 친해진다",
+        text: "인생은 혼자, 나만의 삶을 꾸려나간다",
         axisScores: [
-          { axis: 'EI', pole: 'E', score: 4 },
-          { axis: 'EI', pole: 'I', score: 1 }
+          { axis: 'EI', pole: 'I', score: 5 },
+          { axis: 'TF', pole: 'T', score: 3}
         ]
       }
     ]
   },
   {
     id: 2,
-    type: 'select',
+    type: 'image',
     text: "마인크래프트에서 인테리어를 할 때 선호하는 방식은?",
     choices: [
       {
         id: 1,
         text: "회로를 이용해서 모든걸 자동화시킨다",
+        imageUrl: "images/2_1.png",
         axisScores: [
           { axis: 'TF', pole: 'T', score: 5 },
           { axis: 'TF', pole: 'F', score: 1 }
@@ -65,6 +66,7 @@ export const questions: Question[] = [
       {
         id: 2,
         text: "모던한 스타일로 깔끔하게 꾸민다",
+        imageUrl: "images/2_2.jpg",
         axisScores: [
           { axis: 'TF', pole: 'T', score: 3 },
           { axis: 'TF', pole: 'F', score: 2 }
@@ -73,6 +75,7 @@ export const questions: Question[] = [
       {
         id: 3,
         text: "마인크래프트에 존재하는 모든걸 수집해 가져다 놓는다",
+        imageUrl: "images/2_3.jpg",
         axisScores: [
           { axis: 'SN', pole: 'S', score: 1 },
           { axis: 'SN', pole: 'N', score: 5 }
@@ -81,6 +84,7 @@ export const questions: Question[] = [
       {
         id: 4,
         text: "귀여운게 최고다!",
+        imageUrl: "images/2_4.jpg",
         axisScores: [
           { axis: 'TF', pole: 'T', score: 1 },
           { axis: 'TF', pole: 'F', score: 5 }
@@ -89,6 +93,7 @@ export const questions: Question[] = [
       {
         id: 5,
         text: "작업대, 화로, 상자가 끝이다. 뭐가 더 필요하지?",
+        imageUrl: "images/2_5.png",
         axisScores: [
           { axis: 'SN', pole: 'S', score: 5 },
           { axis: 'SN', pole: 'N', score: 1 }
