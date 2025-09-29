@@ -192,12 +192,12 @@
         {:else if getCurrentQuestion().type === 'image'}
           <div class="space-y-6">
             <!-- 2x2 그리드 (첫 4개 선택지) -->
-            <div class="flex justify-center gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
               <div class="flex flex-col gap-4">
                 <!-- 1번, 3번 선택지 -->
                 <button
                   on:click={(e) => { (e.currentTarget as HTMLButtonElement).blur(); handleChoiceSelect(getCurrentQuestion().choices[0].axisScores); }}
-                  class="group relative bg-gray-50 hover:bg-green-50 border-2 border-transparent hover:border-green-300 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-green-500 overflow-hidden w-64"
+                  class="group relative bg-gray-50 hover:bg-green-50 border-2 border-transparent hover:border-green-300 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-green-500 overflow-hidden w-full sm:w-64"
                 >
                   <!-- 이미지 영역 -->
                   <div class="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
@@ -239,7 +239,7 @@
                 
                 <button
                   on:click={(e) => { (e.currentTarget as HTMLButtonElement).blur(); handleChoiceSelect(getCurrentQuestion().choices[2].axisScores); }}
-                  class="group relative bg-gray-50 hover:bg-green-50 border-2 border-transparent hover:border-green-300 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-green-500 overflow-hidden w-64"
+                  class="group relative bg-gray-50 hover:bg-green-50 border-2 border-transparent hover:border-green-300 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-green-500 overflow-hidden w-full sm:w-64"
                 >
                   <!-- 이미지 영역 -->
                   <div class="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
@@ -283,7 +283,7 @@
                 <!-- 2번, 4번 선택지 -->
                 <button
                   on:click={(e) => { (e.currentTarget as HTMLButtonElement).blur(); handleChoiceSelect(getCurrentQuestion().choices[1].axisScores); }}
-                  class="group relative bg-gray-50 hover:bg-green-50 border-2 border-transparent hover:border-green-300 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-green-500 overflow-hidden w-64"
+                  class="group relative bg-gray-50 hover:bg-green-50 border-2 border-transparent hover:border-green-300 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-green-500 overflow-hidden w-full sm:w-64"
                 >
                   <!-- 이미지 영역 -->
                   <div class="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
@@ -324,7 +324,7 @@
                 
                 <button
                   on:click={(e) => { (e.currentTarget as HTMLButtonElement).blur(); handleChoiceSelect(getCurrentQuestion().choices[3].axisScores); }}
-                  class="group relative bg-gray-50 hover:bg-green-50 border-2 border-transparent hover:border-green-300 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-green-500 overflow-hidden w-64"
+                  class="group relative bg-gray-50 hover:bg-green-50 border-2 border-transparent hover:border-green-300 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-green-500 overflow-hidden w-full sm:w-64"
                 >
                   <!-- 이미지 영역 -->
                   <div class="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
@@ -370,7 +370,7 @@
               <div class="flex justify-center">
                 <button
                   on:click={(e) => { (e.currentTarget as HTMLButtonElement).blur(); handleChoiceSelect(getCurrentQuestion().choices[4].axisScores); }}
-                  class="group relative bg-gray-50 hover:bg-green-50 border-2 border-transparent hover:border-green-300 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-green-500 overflow-hidden w-64"
+                  class="group relative bg-gray-50 hover:bg-green-50 border-2 border-transparent hover:border-green-300 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-green-500 overflow-hidden w-full sm:w-64"
                 >
                   <!-- 이미지 영역 -->
                   <div class="aspect-square bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
