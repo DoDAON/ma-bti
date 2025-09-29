@@ -289,9 +289,6 @@
             <QRCode {result} size={200} />
           {/if}
         </div>
-        <p class="text-xs text-gray-500 mb-4">
-          QR 코드는 1시간 후 만료됩니다.
-        </p>
         <button
           on:click={() => showQR = false}
           class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
