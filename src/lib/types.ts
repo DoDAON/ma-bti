@@ -32,6 +32,7 @@ export type QuestionType = 'select' | 'image';
 export interface Question {
   id: number;
   type: QuestionType;
+  titleImage?: string;
   text: string;
   subtext?: string;
   choices: Choice[];
